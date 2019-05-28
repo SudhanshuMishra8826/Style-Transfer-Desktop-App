@@ -10,7 +10,7 @@ class Window(Frame):
 
     def __init__(self, master=None):
         
-        Frame.__init__(self, master)   
+        Frame.__init__(self, master,bg="#5ac1f4")   
 
         self.master = master
 
@@ -20,10 +20,10 @@ class Window(Frame):
         self.master.title("Style Transfer")
         self.pack(fill=BOTH, expand=1)
 
-        StartButton = Button(self, text="Start WebCam",command=self.client_start)
+        StartButton = Button(self, text="Start WebCam",command=self.client_start,bg="white")
         StartButton.place(x=75, y=190)
 
-        StopButton = Button(self, text="Exit",command=self.client_stop)
+        StopButton = Button(self, text="Exit",command=self.client_stop,bg="white")
         StopButton.place(x=250, y=190)
 
         load = Image.open("style.jpg")
@@ -32,7 +32,7 @@ class Window(Frame):
         # labels can be text or images
         img = Label(self, image=render)
         img.image = render
-        img.place(x=40, y=50)
+        img.place(x=50, y=50)
 
        
 
@@ -73,7 +73,7 @@ class Window(Frame):
 root = Tk()
 
 root.geometry("400x300")
-
+root.resizable(False, False)
 #creation of an instance
 app = Window(root)
 
